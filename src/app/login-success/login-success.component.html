@@ -1,0 +1,116 @@
+<div>
+  <mat-toolbar>
+    <div>
+      <img
+        src="assets/logo.jpg"
+        alt="Logo"
+        class="logo"
+        height="25px"
+        width="25px"
+        aria-label="Application Logo"
+      />
+      <span>{{ currentDate }}</span>
+    </div>
+    <div>
+      <button
+        mat-icon-button
+        (click)="syncAll()"
+        aria-label="Sync All"
+        class="sign-out-button"
+        [disabled]="isSyncing"
+        class="sign-out-button"
+      >
+        <mat-icon [ngClass]="{ spin: isSyncing }">refresh</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        (click)="signOut()"
+        aria-label="Sign out"
+        class="sign-out-button"
+      >
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div>
+  <h2>Login Successful!</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-content">
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Select a Base</mat-label>
+          <mat-select
+            (selectionChange)="onBaseChange($event.value)"
+            [(ngModel)]="selectedBase"
+            name="base"
+          >
+            <mat-option *ngFor="let base of bases()" [value]="base.id">
+              {{ base.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Select a Table</mat-label>
+          <mat-select
+            (selectionChange)="onTableChange($event.value)"
+            [(ngModel)]="selectedTable"
+            name="table"
+          >
+            <mat-option *ngFor="let table of tables()" [value]="table.id">
+              {{ table.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button (click)="fetchRevisionHistory()" class="sso-button">
+        Fetch revision history
+      </button>
+    </div>
+  </form>
+
+  @if(isTableChanged()){
+  <table-details [data]="tickets"></table-details>
+  } @if(isReviewFetched()){
+
+  <div class="accordion-panel">
+    <mat-accordion>
+      @for (item of revisionHistoryArray; track item.ticket) {
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ item.ticket }} </mat-panel-title>
+        </mat-expansion-panel-header>
+        <table>
+          <thead>
+            <tr>
+              <th>Previous Value</th>
+              <th>New Value</th>
+              <th>Assignee</th>
+
+              <th>Authored By</th>
+              <th>Date Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (rev of item.revisions; track rev.DateUpdated) {
+            <tr>
+              <td>{{ rev.prevValue || "-" }}</td>
+              <td>{{ rev.NewValue }}</td>
+              <td>{{ rev.Assignee }}</td>
+
+              <td>{{ rev.AuthoredBy }}</td>
+              <td>{{ rev.DateUpdated | date : "short" }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </mat-expansion-panel>
+      }
+    </mat-accordion>
+  </div>
+  }
+</div>

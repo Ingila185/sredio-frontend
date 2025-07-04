@@ -1,0 +1,66 @@
+.example-wrapper {
+  background: linear-gradient(135deg, #1e1e1e 0%, #232526 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(60, 0, 100, 0.1);
+  padding: 24px;
+  margin: 24px 0;
+  /* Optional: subtle border for separation */
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.ag-theme-material {
+  background: transparent !important;
+  color: var(--text-on-dark);
+  border-radius: 12px;
+  font-family: "Roboto", "Inter", sans-serif;
+}
+
+.ag-root-wrapper {
+  background: transparent !important;
+  border-radius: 12px;
+}
+
+.ag-header {
+  background: linear-gradient(
+    90deg,
+    #3b82f6 0%,
+    #9333ea 50%,
+    #03dac6 100%
+  ) !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 12px 12px 0 0;
+}
+
+.ag-row {
+  background: transparent !important;
+  color: var(--text-on-dark);
+}
+
+.ag-cell {
+  background: rgba(30, 30, 30, 0.85) !important;
+  color: var(--text-on-dark) !important;
+  border-color: #232526 !important;
+}
+
+.ag-row-selected .ag-cell {
+  background: rgba(
+    59,
+    130,
+    246,
+    0.15
+  ) !important; /* subtle blue for selected */
+}
+
+.ag-paging-panel {
+  background: transparent !important;
+  color: var(--text-on-dark) !important;
+}
+
+.ag-theme-material .ag-icon {
+  color: var(--text-on-dark) !important;
+}
+
+.ag-theme-material .ag-body {
+  background: #1e1e1e !important;
+}

@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+/* Define CSS variables for colors */
+:root {
+  --primary-color: #6200ee; /* Deep Purple */
+  --primary-light-color: #bb86fc; /* Light Purple */
+  --secondary-color: #03dac6; /* Teal */
+  --background-dark: #121212; /* Dark Gray */
+  --surface-dark: #1e1e1e; /* Slightly Lighter Dark Gray */
+  --text-on-dark: #e0e0e0; /* Light Gray for text */
+  --text-secondary-on-dark: #a0a0a0; /* Medium Gray for secondary text */
+  --error-color: #cf6679; /* Reddish Pink */
+  --button-gradient-start: #3b82f6; /* Blue */
+  --button-gradient-middle: #9333ea; /* Purple */
+  --button-gradient-end: #6ee7b7; /* Green */
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  height: 100%; /* Ensure body takes full height */
+}
+
+body {
+  font-family: "Roboto", "Inter", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--background-dark) 0%,
+    #0a0a0a 50%,
+    var(--background-dark) 100%
+  );
+  min-height: 100vh;
+  //display: flex;
+  //align-items: center;
+  //justify-content: center;
+  padding: 16px;
+  color: var(--text-on-dark);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

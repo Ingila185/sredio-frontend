@@ -13,7 +13,7 @@ Before you begin, ensure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/Ingila185/sred-io.git](https://github.com/Ingila185/sredio-frontend.git)
+   git clone [https://github.com/Ingila185/sredio-frontend.git](https://github.com/Ingila185/sredio-frontend.git)
    ```
 2. Navigate to the project directory:
    ```bash
